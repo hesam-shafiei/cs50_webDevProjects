@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <div id="header">
+            <ul id="headerUL">
+                <li><a href="index.html" style="color: rgb(5, 145, 0);">Home</a></li>
+                <li><a href="advanced_search.html">Advanced Search</a></li>
+                <li><a href="image_search.html">Image Search</a></li>
+            </ul>
+            
+        </div>
+
+        <div id="searchContainer">
+
+            <img src="/ASSETS/logo.jpg" alt="Google Logo" id="googleLogo">
+
+            <form id="searchForm" action="https://google.com/search">
+                <input placeholder="Search Google" type="text" name="q" id="searchField" >
+                <input type="hidden" name="tbm" value="isch" id="imgSearch">
+                <input type="submit" value="Google Search" id="submitBtn">
+            </form>
+        </div>
+        
+    </body>
+</html>
+

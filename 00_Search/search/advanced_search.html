@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="advancedStyle.css">
+    </head>
+    <body>
+
+        <div id="header">
+
+            <img src="ASSETS/logo.jpg" alt="Google Icon" id="googleIcon">
+
+            <div id="headerUL">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="advanced_search.html" style="color: rgb(5, 145, 0);">Advanced Search</a></li>
+                    <li><a href="image_search.html">Image Search</a></li>
+                </ul>
+            </div>
+            
+            
+        </div>
+
+        <div id="title">
+            <h1>Advanced Search</h1>
+        </div>
+
+        <hr>
+        
+        <div id="searchContainer">
+
+            <h2>Find Pages With...</h2>
+
+            <form id="searchForm" action="https://google.com/search">
+
+                <div id="singleSearchBox">
+                    <label for="as_q">all these words:</label>
+                    <input type="text" name="as_q" id="advancedSearchField" >
+                </div>
+                
+                <div id="singleSearchBox">
+                    <label for="as_epq">this exact word or phrase:</label>
+                    <input type="text" name="as_epq" id="advancedSearchField" >
+                </div>
+                
+
+                <div id="singleSearchBox">
+                    <label for="as_oq">any of these words:</label>
+                    <input type="text" name="as_oq" id="advancedSearchField" >
+                </div>
+                
+
+                <div id="singleSearchBox">
+                    <label for="as_eq">none of these words:</label>
+                    <input type="text" name="as_eq" id="advancedSearchField" >
+                </div>
+                
+
+                <input type="submit" value="Advanced Search" id="submitBtn">
+            </form>
+        </div>
+        
+    </body>
+</html>
+
