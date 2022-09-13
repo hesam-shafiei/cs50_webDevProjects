@@ -5,13 +5,12 @@
 {% endblock %}
 
 {% block body %}
-    <h1>{{ title }}</h1>
 
     {% if isEmpty %}
         <br>
         <h3>{{ title }} not found</h3>
     {% else %}
-        <p>{{ entryInfo }}</p>
+        <p>{{ entryInfo|safe }}</p>
     {% endif %}
 
     
