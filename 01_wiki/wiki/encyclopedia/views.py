@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from markdown2 import Markdown
 from . import util
+import random
 
 markdowner = Markdown()
 def index(request):
@@ -93,3 +94,13 @@ def save_edit(request):
             "title": title,
             "entryInfo": html_content
         })
+
+def randomEntry(request):
+    allEntries = util.list_entries()
+    randomEntry = random.choice(allEntries)
+    EntryInfo = util.get_entry(randomEntry)
+    html_content = markdowner.convert(EntryInfo)
+    return render(request, "encyclopedia/entryPage.html", {
+        "title": randomEntry,
+        "entryInfo": html_content
+    })
