@@ -54,6 +54,7 @@ def search(request):
 
 
 def new_page(request):
+
     if request.method == "GET":
         return render(request, "encyclopedia/new.html")
     else:
@@ -71,3 +72,24 @@ def new_page(request):
                 title: title,
                 "content": html_content
             })
+
+
+def edit(request):
+    if request.method == "POST":
+        title = request.POST['entry_title']
+        content = util.get_entry(title)
+        return render(request, "encyclopedia/edit.html", {
+            "title": title,
+            "content": content
+        })
+
+def save_edit(request):
+    if request.method == "POST":
+        title = request.POST['title']
+        content = request.POST['content']
+        util.save_entry(title, content)
+        html_content = markdowner.convert(content)
+        return render(request, "encyclopedia/entryPage.html", {
+            "title": title,
+            "entryInfo": html_content
+        })

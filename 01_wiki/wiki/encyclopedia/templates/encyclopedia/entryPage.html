@@ -12,6 +12,11 @@
     {% else %}
         <p>{{ entryInfo|safe }}</p>
     {% endif %}
-
+        
+        <form action="{% url 'edit' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="entry_title" value="{{ title }}">
+            <input type="submit" class="btn btn-danger" value="Edit">
+        </form>
     
 {% endblock %}
