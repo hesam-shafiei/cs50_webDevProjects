@@ -23,3 +23,31 @@ def entryPage(request, name):
         "entryInfo": entryInfo_converted,
         "isEmpty": entryInfo == None
     })
+
+
+def search(request):
+    if request.method == "POST":
+        entry_search = request.POST['q']
+        entryInfo = util.get_entry(entry_search)
+        isEmpty = entryInfo == None
+        html_content = None
+        if(not isEmpty):
+            html_content = markdowner.convert(entryInfo)
+        else:
+            html_content = None
+
+        if html_content is not None:
+            return render(request, "encyclopedia/entryPage.html", {
+                "title": entry_search,
+                "entryInfo": html_content,
+                "isEmpty": isEmpty
+            })
+        else:
+            allEntries = util.list_entries()
+            recommendation = []
+            for entry in allEntries:
+                if entry_search.lower() in entry.lower():
+                    recommendation.append(entry)
+            return render(request, "encyclopedia/search.html", {
+                "recommendation": recommendation
+            })
